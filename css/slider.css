@@ -1,0 +1,80 @@
+.gallery {
+    max-width: 800px;
+    padding-bottom: 60px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.gallery video{
+    border-radius: 23px;
+    max-height: 700px;
+    overflow: hidden;
+    width: 100%;
+    background-color: #000;
+    margin: 0 auto;
+}
+
+.gallery img {
+    border-radius: 23px;
+    max-height: 700px;
+    object-fit: 100% 100%;
+    margin: 0 auto;
+}
+
+.gallery-item{
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    box-shadow: 0 20px 100px 0 rgba(233, 53, 25, 0.38);
+    background: linear-gradient(90deg, #982f01 0%, #fe4e01 50.48%, #982f01 100%);
+    border-radius: 26px;
+    padding: 30px 17px;
+}
+
+.slick-slide{
+    transform: scale(0.9) !important;
+}
+
+/* Slick */
+.slick-slide {
+    outline: none;
+}
+
+/* Кнопки */
+.slick-prev,
+.slick-next {
+    width: 44px !important;
+    height: 44px !important;
+    z-index: 10 !important;
+    font-size: 0 !important;
+    top: initial !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+}
+
+.slick-prev {
+    left: 30px !important;
+    bottom: 0 !important;
+    background-image: url(../images/left.png) !important;
+}
+
+.slick-next {
+    right: 30px !important;
+    bottom: 0 !important;
+    background-image: url(../images/right.png) !important;
+}
+
+.slick-prev:before, .slick-next:before{
+    display: none !important;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .slick-prev {
+        left: 10px;
+    }
+    .slick-next {
+        right: 10px;
+    }
+}
