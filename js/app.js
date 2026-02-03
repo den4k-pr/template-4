@@ -88,25 +88,40 @@ const video = document.querySelector('.videoBlock-day-video');
 const playBtn = document.querySelector('.videoBlock-play-btn');
 const wrapper = document.querySelector('.videoBlock-video-wrapper');
 
-let isWrapperClick = false; // прапорець для блокування подвійного toggle
+// ❌ ВБИВАЄМО нативний toggle video
+video.addEventListener('click', (e) => {
+  e.stopPropagation();
+});
 
-// Клік по кнопці play
+// Play кнопка
 playBtn.addEventListener('click', (e) => {
   e.stopPropagation();
-  if (video.paused) video.play();
+  video.play();
 });
 
-// Коли відео грає — ховаємо кнопку
+// Wrapper — ЄДИНЕ місце керування
+wrapper.addEventListener('click', () => {
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+});
+
+// Play
 video.addEventListener('play', () => {
   playBtn.style.display = 'none';
+  video.setAttribute('controls', 'controls');
 });
 
-// Коли відео на паузі — показуємо кнопку
+// Pause
 video.addEventListener('pause', () => {
   playBtn.style.display = 'flex';
+  video.removeAttribute('controls');
 });
 
-// Кінець відео — показуємо кнопку
+// End
 video.addEventListener('ended', () => {
   playBtn.style.display = 'flex';
+  video.removeAttribute('controls');
 });
